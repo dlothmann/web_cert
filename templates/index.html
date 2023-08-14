@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html style="background: black">
+
+<head>
+    <title>IONOS Cert Generator</title>
+</head>
+
+<style>
+    .h1_white {
+        color: white
+    }
+    .center {
+        margin: auto;
+        width: 50%;
+        border: 5px solid red;
+        padding: 10px;
+        text-align: center;
+
+    }
+
+    .myButton {
+        background-color: #05aeef;
+        border-radius: 28px;
+        border: 1px solid #2b59c3;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Calibri;
+        font-size: 25px;
+        padding: 16px 31px;
+        text-decoration: none;
+
+    }
+
+    .myButton:hover {
+        background-color: #2b59c3;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+</style>
+
+<body>
+    <div class="center">
+        <h1 class="h1_white">
+            Check Status
+        </h1>
+        <a href="/status"><input type="button" class="myButton" value="Status"></a><br><br>
+
+<p style="color: lawngreen">Cert.pem: Created on
+15.06.2023
+.</p>
+<p style="color: lawngreen">Chain.pem: Created on
+15.06.2023
+.</p>
+<p style="color: lawngreen">Fullchain.pem: Created on
+15.06.2023
+.</p>
+<p style="color: lawngreen">Privkey.pem: Created on
+15.06.2023
+.</p>
+    </div>
+    <br>
+    <br>
+    <div class=center>
+        <h1 class="h1_white">
+            Generate Wildcard Certificates
+        </h1>
+        <a href="/generate_cert"><input type="button" class="myButton" value="Generate"></a>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div class=center>
+        <h1 class="h1_white">
+            Download Certificates
+        </h1>
+        <a href="/download_certificate"><input type="button" class="myButton" value="Download all"></a>
+        <a href="/download_pfx"><input type="button" class="myButton" value="Download .pfx"></a>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>
+
