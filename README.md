@@ -5,6 +5,10 @@ Based on https://www.devlix.de/lets-encrypt-wildcard-zertifikate-mit-ionos-dns-a
 ---
 INSTALL AS ROOT
 
+clone to /opt/
+chmod +x install.sh
+./install.sh
+
 ## Requirements
 - python 3
 - docker

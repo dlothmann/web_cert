@@ -1,3 +1,0 @@
-0 11 30 * * /opt/letsencrypt/docker.sh > /dev/null 2>&1
-*/5 * * * * rm /tmp/*.tar.gz
-@reboot /opt/flask_web && ./run.sh > /dev/null 2>&1

@@ -23,32 +23,43 @@ read pfx_password
 
 chmod +x scripts/*.sh
 chmod +x scripts/*.ps1
+chmod +x scripts/docker/*.sh
+chmod +x run.sh
 
 # INSTALL_DOMAIN_VAR
-sed s/INSTALL_DOMAIN_VAR/$domain/ scripts/status.ps1
-sed s/INSTALL_DOMAIN_VAR/$domain/ scripts/docker.sh
-sed s/INSTALL_DOMAIN_VAR/$domain/ scripts/create_pfx.sh
-sed s/INSTALL_DOMAIN_VAR/$domain/ scripts/zip_up.sh
-sed s/INSTALL_DOMAIN_VAR/$domain/ app.py
-
+sed -i "s/INSTALL_DOMAIN_VAR/$domain/g" scripts/status.ps1 scripts/docker.sh scripts/create_pfx.sh scripts/zip_up.sh app.py
+sleep 1s
+#sed -i "s/INSTALL_DOMAIN_VAR/$domain/" scripts/docker.sh
+sleep 1s
+#sed -i "s/INSTALL_DOMAIN_VAR/$domain/" scripts/create_pfx.sh
+#sleep 1s
+#sed -i "s/INSTALL_DOMAIN_VAR/$domain/" scripts/zip_up.sh
+#sleep 1s
+#sed -i "s/INSTALL_DOMAIN_VAR/$domain/" app.py
+sleep 1s
 # INSTALL_EMAIL_VAR
-sed s/INSTALL_EMAIL_VAR/$mail/ scripts/docker.sh
+sed -i "s/INSTALL_EMAIL_VAR/$mail/g" scripts/docker.sh
+sleep 1s
 
 # INSTALL API
-sed s/INSTALL_API_KEY/$api_key/ scripts/docker.sh
-sed s/INSTALL_KEY_SECRET/$api_key_secret/ scripts/docker.sh
+sed -i "s/INSTALL_API_KEY/$api_key/g" scripts/docker.sh
+sleep 1s
+sed -i "s/INSTALL_KEY_SECRET/$api_key_secret/g" scripts/docker.sh
+sleep 1s
 
 # INSTALL_PFX_PASS
-sed s/INSTALL_PFX_PASS/$pfx_password/ scripts/create_pfx.sh
+sed -i "s/INSTALL_PFX_PASS/$pfx_password/g" scripts/create_pfx.sh
+sleep 1s
 
 
 
 # Create folder /opt/letsencrypt
 
-mkdir /opt/letsencrypt/cert
+mkdir -p /opt/letsencrypt/cert
 
 # Copy cron file
-cp scripts/web_cert_cron /etc/cron.d/
+chmod +x scripts/web_cert_cron.sh
+sh scripts/web_cert_cron.sh
 
 # Install Requirements
 
@@ -70,7 +81,7 @@ apt-get install -y powershell
 
 ## Install Curl,tar,python3,
 
-apt-get install -y curl tar python3
+apt-get install -y curl tar python3 pip
 
 ## Install Docker
 
@@ -88,3 +99,16 @@ echo \
 apt-get update
 
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+## Flask
+
+pip install flask
+
+
+# Install Service
+
+cp scripts/web_cert.service /etc/systemd/system/web_cert.service
+
+systemctl daemon-reload
+systemctl enable web_cert.service
+systemctl start web_cert.service

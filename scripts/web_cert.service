@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask Webserver for Certifiaction Generation
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/web_cert/
+ExecStart=/opt/web_cert/run.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
