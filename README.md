@@ -1,21 +1,30 @@
-# web_cert
+# IONOS Certificate Generator
 Simple implementation for generating SSL wildcard certificates with IONOS API.
 
 Based on https://www.devlix.de/lets-encrypt-wildcard-zertifikate-mit-ionos-dns-api-erzeugen/
 ---
-INSTALL AS ROOT
 
-clone to /opt/
-chmod +x install.sh
-./install.sh
 
-## Requirements
-- python 3
-- docker
-- curl
-- powershell
-- tar
+## Requirements for install script
+```
+sudo apt-get install -y sed
+```
+## Installation
+
+1. Clone repository to ``/opt/``
+2. ```
+   sudo su
+   cd /opt/web_cert
+   chmod +x install.sh
+   ```
+3. ```./install.sh```
+
+
+# Works on
+![Static Badge](https://img.shields.io/badge/Ubuntu-22.04LTS-green)
+
+
 
 ## TODO's
 - [ ] Replace poweshell script with bash
-- [ ] Read from config file
+- [ ] Clear up installation script
