@@ -1,7 +1,8 @@
 # IONOS Certificate Generator
 Simple implementation for generating SSL wildcard certificates with IONOS API.
 
-Based on https://www.devlix.de/lets-encrypt-wildcard-zertifikate-mit-ionos-dns-api-erzeugen/
+Based on this [article](https://medium.com/devlix-blog/automate-lets-encrypt-wildcard-certificate-creation-with-ionos-dns-rest-api-d66c3b3ddc9c)
+German Version [here](https://www.devlix.de/lets-encrypt-wildcard-zertifikate-mit-ionos-dns-api-erzeugen/)
 ---
 
 
